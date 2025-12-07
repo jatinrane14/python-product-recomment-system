@@ -3,9 +3,6 @@ import pandas as pd
 
 app = Flask(__name__)
 
-# ==============================
-# ✅ YOUR RECOMMENDER CLASS
-# ==============================
 class SmartElectronicsRecommender:
     def __init__(self, dataset_path):
         self.data = pd.read_csv(dataset_path)
@@ -97,4 +94,4 @@ def index():
     return render_template("index.html", error=error, results=results)
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run()
