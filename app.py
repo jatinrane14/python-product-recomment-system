@@ -83,10 +83,6 @@ class SmartElectronicsRecommender:
 
         return min(score, 100)
 
-
-# ==============================
-# ✅ LOAD DATASET
-# ==============================
 recommender = SmartElectronicsRecommender("electronics_dataset.csv")
 
 @app.route("/", methods=["GET", "POST"])
