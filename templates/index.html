@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Smart Electronics Recommender</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #f4f4f4;
+            padding: 40px;
+        }
+        .container {
+            background: white;
+            width: 500px;
+            margin: auto;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px gray;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+        }
+        button {
+            margin-top: 10px;
+            padding: 10px;
+            width: 100%;
+            background: green;
+            color: white;
+            border: none;
+        }
+        .card {
+            background: #eee;
+            padding: 10px;
+            margin-top: 15px;
+            border-radius: 5px;
+        }
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Smart Electronics Recommendation System</h2>
+
+    <form method="POST">
+        <input type="text" name="product" placeholder="Enter product (e.g. iPhone 14 by Apple)" required>
+        <button type="submit">Get Recommendation</button>
+    </form>
+
+    {% if error %}
+        <p class="error">{{ error }}</p>
+    {% endif %}
+
+    {% if results %}
+        {% for item in results %}
+        <div class="card">
+            <p><b>Product:</b> {{ item.name }}</p>
+            <p><b>Company:</b> {{ item.company }}</p>
+            <p><b>Price:</b> ₹{{ item.price }}</p>
+            <p><b>Rating:</b> {{ item.rating }}</p>
+            <p><b>Reviews:</b> {{ item.reviews }}</p>
+            <p><b>Manufactured In:</b> {{ item.manufactured }}</p>
+            <hr>
+            <p><b>Score:</b> {{ item.score }}</p>
+            <p><b>Decision:</b> {{ item.decision }}</p>
+        </div>
+        {% endfor %}
+    {% endif %}
+</div>
+
+</body>
+</html>
